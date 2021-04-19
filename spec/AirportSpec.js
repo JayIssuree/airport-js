@@ -12,5 +12,8 @@ describe("Airport", function () {
       subject.store(planeSpy);
       expect(subject.hangar).toContain(planeSpy);
     });
+    it("is empty upon creation", function () {
+      expect(subject.hangar).toEqual([]);
+    });
   });
 });

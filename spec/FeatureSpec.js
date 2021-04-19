@@ -1,14 +1,15 @@
 describe("Feature Test:", function () {
-  var plane;
+  var flyingPlane;
   var airport;
 
   beforeEach(function () {
-    plane = new Plane();
+    flyingPlane = new Plane();
+    flyingPlane.isFlying = true;
     airport = new Airport();
   });
 
   it("planes can be instructed to land at an airport", function () {
-    plane.land(airport);
-    expect(airport.hangar).toContain(plane);
+    flyingPlane.land(airport);
+    expect(airport.hangar).toContain(flyingPlane);
   });
 });
