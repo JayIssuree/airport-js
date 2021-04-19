@@ -18,6 +18,7 @@ class Plane {
     if (this.isFlying == true) {
       return "Plane is already in flight.";
     }
+    this._location.removePlane(this)
     this._location = null;
     this.isFlying = true;
   }

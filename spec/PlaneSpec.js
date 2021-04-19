@@ -6,6 +6,7 @@ describe("Plane", function () {
     subject = new Plane();
     airportSpy = {
       store: function () {},
+      removePlane: function (){},
     };
   });
 
@@ -29,9 +30,11 @@ describe("Plane", function () {
 
   describe("takeOff", function () {
     it("takes off from the airport", function () {
+      spyOn(airportSpy, "removePlane")
       subject.isFlying = true;
       subject.land(airportSpy);
       subject.takeOff();
+      expect(airportSpy.removePlane).toHaveBeenCalledWith(subject)
       expect(subject._location).toBeNull();
     });
     it("does not take off a plane that is already in flight", function () {
