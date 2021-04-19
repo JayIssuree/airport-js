@@ -33,5 +33,9 @@ describe("Airport", function () {
         } while (subject.isFull() == false)
         expect(subject.store(planeSpy)).toEqual("Hangar is at capacity")
       })
+      it("allows the capacity to be overriden on initialize", function(){
+        airport = new Airport(10)
+        expect(airport.CAPACITY).toEqual(10)
+      })
   })
 });
